@@ -1,11 +1,11 @@
-# Car Rental project  
-	Project Problem
-•	Traditional car rental systems often suffer from inefficiencies such as long waiting times, paperwork hassles, limited vehicle availability, and lack of transparency in pricing. This leads to customer dissatisfaction and operational challenges for rental companies.
-	Objective 
-•	The objective of this project is to develop a Smart Car Rental System that utilizes modern technologies to streamline the rental process, enhance customer experience, optimize fleet management, and improve overall operational efficiency.
-	Scope
-•	Fleet Management System: Developing a centralized system to monitor vehicle status, track maintenance schedules, and optimize fleet utilization.
-•	Anyone can use it  even if unfamiliar with computer
+# Car Rental project    
+	Project Problem  
+•	Traditional car rental systems often suffer from inefficiencies such as long waiting times, paperwork hassles, limited vehicle availability, and lack of transparency in pricing. This leads to customer dissatisfaction and operational challenges for rental companies.  
+	Objective   
+•	The objective of this project is to develop a Smart Car Rental System that utilizes modern technologies to streamline the rental process, enhance customer experience, optimize fleet management, and improve overall operational efficiency.  
+	Scope  
+•	Fleet Management System: Developing a centralized system to monitor vehicle status, track maintenance schedules, and optimize fleet utilization.  
+•	Anyone can use it  even if unfamiliar with computer  
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **At first** you should download the **DataBase_SQL server** folder and then,  
