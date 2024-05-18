@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="newCarReintModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="car">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_dalyPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="c_state" Type="Boolean" />
+    <Property Name="c_color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="customers" Relationship="Self.FK_customers_cars" FromRole="cars" ToRole="customers" />
+    <NavigationProperty Name="invoices" Relationship="Self.FK_invoices_cars" FromRole="cars" ToRole="invoices" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="cus_id" />
+    </Key>
+    <Property Name="cus_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cus_Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cus_Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cus_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cus_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_id_FK_" Type="Int32" />
+    <Property Name="cus_licensesNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cus_nationalID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="car" Relationship="Self.FK_customers_cars" FromRole="customers" ToRole="cars" />
+    <NavigationProperty Name="invoices" Relationship="Self.FK_invoices_customers" FromRole="customers" ToRole="invoices" />
+  </EntityType>
+  <EntityType Name="invoice">
+    <Key>
+      <PropertyRef Name="in_id" />
+    </Key>
+    <Property Name="in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="in_sDate" Type="DateTime" Precision="0" />
+    <Property Name="in_EDate" Type="DateTime" Precision="0" />
+    <Property Name="rent_period" Type="Int32" />
+    <Property Name="car_id_FK_" Type="Int32" />
+    <Property Name="cus_id_FK_" Type="Int32" />
+    <Property Name="user_id_FK_" Type="Int32" />
+    <NavigationProperty Name="car" Relationship="Self.FK_invoices_cars" FromRole="invoices" ToRole="cars" />
+    <NavigationProperty Name="customer" Relationship="Self.FK_invoices_customers" FromRole="invoices" ToRole="customers" />
+    <NavigationProperty Name="user" Relationship="Self.FK_invoices_users" FromRole="invoices" ToRole="users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="u_userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="u_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="invoices" Relationship="Self.FK_invoices_users" FromRole="users" ToRole="invoices" />
+  </EntityType>
+  <Association Name="FK_customers_cars">
+    <End Role="cars" Type="Self.car" Multiplicity="0..1" />
+    <End Role="customers" Type="Self.customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cars">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="customers">
+        <PropertyRef Name="c_id_FK_" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoices_cars">
+    <End Role="cars" Type="Self.car" Multiplicity="0..1" />
+    <End Role="invoices" Type="Self.invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cars">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="invoices">
+        <PropertyRef Name="car_id_FK_" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoices_customers">
+    <End Role="customers" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="invoices" Type="Self.invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="cus_id" />
+      </Principal>
+      <Dependent Role="invoices">
+        <PropertyRef Name="cus_id_FK_" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoices_users">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="invoices" Type="Self.invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="invoices">
+        <PropertyRef Name="user_id_FK_" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="newCarReintEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cars" EntityType="Self.car" />
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="invoices" EntityType="Self.invoice" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_customers_cars" Association="Self.FK_customers_cars">
+      <End Role="cars" EntitySet="cars" />
+      <End Role="customers" EntitySet="customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoices_cars" Association="Self.FK_invoices_cars">
+      <End Role="cars" EntitySet="cars" />
+      <End Role="invoices" EntitySet="invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoices_customers" Association="Self.FK_invoices_customers">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="invoices" EntitySet="invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoices_users" Association="Self.FK_invoices_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="invoices" EntitySet="invoices" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
