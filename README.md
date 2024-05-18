@@ -36,15 +36,8 @@ The project encompasses:
 3. Open the project file by right-clicking and selecting 'Open with Visual Studio 2022'.
 4. Connect to the SQL Server via Visual Studio and select the `newcarReint` database as your target database.
 
-## Contributing
-We welcome contributions! Please read our contributing guidelines for details on how to submit pull requests.
+![ERD for DB](https://github.com/MOHAMED-MAHM0UD/carprojects/assets/130427945/1a2a3a92-1cd8-4cad-93bf-ec6aa01b71e6)
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-- Thanks to all the contributors who have invested their time into making this project a success.
-- Special thanks to XYZ Corporation for their continuous support.
 
 ## Contact
 For any inquiries or contributions, please contact us at contact@smartcarrentalsystem.com.
