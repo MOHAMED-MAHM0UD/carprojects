@@ -1,5 +1,5 @@
 # Smart Car Rental System  
-![Car Rental application](https://drive.google.com/file/d/1-Ef9u3ejhhTDNCcQJr7T0IDySE_HyOUO/view?usp=drive_link)  
+![Car Rental application]([https://drive.google.com/file/d/1-Ef9u3ejhhTDNCcQJr7T0IDySE_HyOUO/view?usp=drive_link](https://drive.google.com/file/d/1-Ef9u3ejhhTDNCcQJr7T0IDySE_HyOUO/view?usp=sharing))  
 
 ## Introduction
 The Smart Car Rental System is designed to address the inefficiencies plaguing traditional car rental services. By leveraging modern technologies, this system aims to reduce wait times, simplify the rental process, and provide a seamless experience for both customers and rental companies.
