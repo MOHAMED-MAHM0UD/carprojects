@@ -36,9 +36,13 @@ The project encompasses:
 3. Open the project file by right-clicking and selecting 'Open with Visual Studio 2022'.
 4. Connect to the SQL Server via Visual Studio and select the `newcarReint` database as your target database.
 
-![ERD for DB](https://github.com/MOHAMED-MAHM0UD/carprojects/assets/130427945/1a2a3a92-1cd8-4cad-93bf-ec6aa01b71e6)
+### Database Structure
+1.	Database ERD 
+![ERD for DB](https://github.com/MOHAMED-MAHM0UD/carprojects/assets/130427945/1a2a3a92-1cd8-4cad-93bf-ec6aa01b71e6)  
+2.  Database mapping and the relational model
+![mapping](https://github.com/MOHAMED-MAHM0UD/carprojects/assets/130427945/f934858c-7f28-44bf-b44b-8815a933d614)
 
 
 ## Contact
-For any inquiries or contributions, please contact us at contact@smartcarrentalsystem.com.
+For any inquiries or contributions, please contact us at https://www.linkedin.com/in/mohamed-mahmoud770
 
